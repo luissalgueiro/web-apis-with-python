@@ -9,6 +9,9 @@ def index():
     ## adding name as param for the API
     name = request.args.get('name')
     response = {'data':f'Hello {name}!!'}
+    ## When this direction is passing to the web browser, it generates the correct response
+    ### http://127.0.0.1:5000/greet?name=Luis 
+    ## ?var_name=var_value is the correct syntax
     
     """
     ToDo: 
