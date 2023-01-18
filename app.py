@@ -14,7 +14,7 @@ def index():
     # response = {'data':f'Hello {name}!!'}
     # ## When this direction is passing to the web browser, it generates the correct response
     # ### http://127.0.0.1:5000/greet?name=Luis 
-    # ## ?var_name=var_value is the correct syntax
+    # ## ?var_name=var_value is the correct syntax, this is called the querystring.
     
     """
     ToDo: 
