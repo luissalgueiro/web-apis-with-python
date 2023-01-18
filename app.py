@@ -4,7 +4,7 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 ### Define what the app does ###
-@app.get('/greet')
+@app.get('/')
 def index():
     """
     ToDo: 
@@ -15,5 +15,5 @@ def index():
     5. If both names are provided, respond with a question: "Is <FirstName> and <SecondName> your names?"
     
     """
-    return jsonify("TODO")
+    return jsonify("Hello World!!")
 
