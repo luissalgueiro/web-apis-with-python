@@ -8,6 +8,9 @@ app = Flask(__name__)
 def index():
     ## adding name as param for the API
     name = request.args.get('name')
+    ## adding an error response in case the argument was not given properly
+    if not name:
+        return jsonify({'status':'Error!'})
     response = {'data':f'Hello {name}!!'}
     ## When this direction is passing to the web browser, it generates the correct response
     ### http://127.0.0.1:5000/greet?name=Luis 
