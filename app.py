@@ -6,6 +6,10 @@ app = Flask(__name__)
 ### Define what the app does ###
 @app.get('/greet')
 def index():
+    ## adding name as param for the API
+    name = request.args.get('name')
+    response = {'data':f'Hello {name}!!'}
+    
     """
     ToDo: 
     1. Capture first name and last name
@@ -16,7 +20,7 @@ def index():
     
     """
     
-    response = {"data":"Hello World!!!"}
+    # response = {"data":"Hello World!!!"}
     
     return jsonify(response)
 
