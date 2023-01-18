@@ -27,7 +27,7 @@ def index():
     """
     fname = request.args.get('fname')
     lname = request.args.get('lname')
-    if not fname and lname:
+    if not fname and not lname:
         return jsonify({'status':'Error!'})
     elif lname and not fname:
         return jsonify({"data":f"Hello {lname}"})
