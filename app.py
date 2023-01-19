@@ -27,11 +27,11 @@ def dictionary():
     
     definitions = match_exact(word)
     if definitions:
-        return jsonify({"status":"Success","data":definitions})
+        return jsonify({"status":"Success","data":definitions,'word':word})
     
     definitions = match_like(word)
     if definitions:
-        return jsonify({"status":"Partial","data":definitions})
+        return jsonify({"status":"Partial","data":definitions,'word':word})
     else:
         return jsonify({"Status":"Error","data":"word not found"})
     
