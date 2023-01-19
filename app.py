@@ -20,7 +20,22 @@ def index():
 @app.get('/dict')
 def dictionary():
     
-    return 
+    word= request.args.get('word')
+    
+    if not word:
+        return jsonify({"status":"Error", 'data':"word not found"})
+    
+    definitions = match_exact(word)
+    if definitions:
+        return jsonify({"status":"Success","data":definitions})
+    
+    definitions = match_like(word)
+    if definitions:
+        return jsonify({"status":"Partial","data":definitions})
+    else:
+        return jsonify("Status":"Error","data":"word not found")
+    
+
 
 if __name__=='__main__':
     app.run()
