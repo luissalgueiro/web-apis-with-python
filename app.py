@@ -16,6 +16,7 @@ def index():
     """
     # response =  {"usage":f"/dict?=<word>"}
     # return jsonify(response)
+    return render_template("index.html")
 
 @app.get('/dict')
 def dictionary():
@@ -41,7 +42,8 @@ def dictionary():
             else:
                 response['words'].append({"Status":"Error","data":"word not found"})
                 # return jsonify(response)
-    return jsonify(response)        
+    # return jsonify(response)     
+    return render_template('results.html',response=jsonify(response))   
 
 
 if __name__=='__main__':
