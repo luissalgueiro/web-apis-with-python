@@ -9,7 +9,13 @@ app = Flask(__name__)
 ### Define what the app does ###
 @app.get('/')
 def index():
-    return 
+    """
+    Provide instructions for the usage 
+    Returns:
+        response: json formatted
+    """
+    response =  {"usage":f"/dict?{word}"}
+    return jsonify(response)
 
 @app.get('/dict')
 def dictionary():
