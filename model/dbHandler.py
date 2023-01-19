@@ -41,7 +41,7 @@ def match_like(word:str) -> list:
     
     db = SQL.connect('data/dictionary.db')
     sql_query  = "select * from entries where word like ? "
-    match_query = db.execute(sql_query, ("%"+word+"%")).fetchall()
+    match_query = db.execute(sql_query, ("%"+word+"%",)).fetchall()
     db.close()
     return match_query
 
