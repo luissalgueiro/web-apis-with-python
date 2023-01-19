@@ -1,7 +1,7 @@
 ## Project 3 - Dictionary API with sqlite db 
 
 from flask import Flask, request, jsonify, render_template
-from model import match_exact, match_like
+from model.dbHandler import match_exact, match_like
 
 ### initialize the app ###
 app = Flask(__name__)
