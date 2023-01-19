@@ -14,7 +14,7 @@ def index():
     Returns:
         response: json formatted
     """
-    response =  {"usage":f"/dict?{word}"}
+    response =  {"usage":f"/dict?=<word>"}
     return jsonify(response)
 
 @app.get('/dict')
