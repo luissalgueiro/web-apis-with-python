@@ -14,27 +14,34 @@ def index():
     Returns:
         response: json formatted
     """
-    response =  {"usage":f"/dict?=<word>"}
-    return jsonify(response)
+    # response =  {"usage":f"/dict?=<word>"}
+    # return jsonify(response)
 
 @app.get('/dict')
 def dictionary():
     
-    word= request.args.get('word')
+    words = request.args.getlist('word')
     
-    if not word:
-        return jsonify({"status":"Error", 'data':"word not found"})
+    if not words:
+        response = {"status":"Error",'words':words, 'data':"word not found"}
+        return jsonify(response)
     
-    definitions = match_exact(word)
-    if definitions:
-        return jsonify({"status":"Success","data":definitions,'word':word})
+    response = {'words':[]}
     
-    definitions = match_like(word)
-    if definitions:
-        return jsonify({"status":"Partial","data":definitions,'word':word})
-    else:
-        return jsonify({"Status":"Error","data":"word not found"})
-    
+    for word in words:
+        definitions = match_exact(word)
+        if definitions:
+            response['words'].append({"status":"Success","data":definitions,'word':word})
+            # return jsonify(response)
+        else:
+            definitions = match_like(word)
+            if definitions:
+                response['words'].append({"status":"Partial","data":definitions,'word':word})
+                # return jsonify(response)
+            else:
+                response['words'].append({"Status":"Error","data":"word not found"})
+                # return jsonify(response)
+    return jsonify(response)        
 
 
 if __name__=='__main__':
