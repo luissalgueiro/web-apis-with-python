@@ -33,7 +33,7 @@ def dictionary():
     if definitions:
         return jsonify({"status":"Partial","data":definitions})
     else:
-        return jsonify("Status":"Error","data":"word not found")
+        return jsonify({"Status":"Error","data":"word not found"})
     
 
 
