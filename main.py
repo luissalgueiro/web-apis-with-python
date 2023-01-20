@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from fastapi import jsonable_encoder
+from fastapi.encoders import jsonable_encoder
 from typing import Optional
 from model.dbHandler import match_exact, match_like
 
